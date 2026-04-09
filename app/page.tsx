@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar"
 import Hero from "@/components/Hero"
+import About from "@/components/About"
 
 export default function HomePage() {
   return (
@@ -7,6 +8,7 @@ export default function HomePage() {
       <Navbar />
       <div className="pt-24">
         <Hero />
+        <About />
       </div>
     </div>
   );
