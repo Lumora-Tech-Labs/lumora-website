@@ -1,15 +1,21 @@
-import Navbar from "@/components/Navbar"
-import Hero from "@/components/Hero"
-import About from "@/components/About"
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Work from "@/components/Work";
+import Projects from "@/components/Projects";
+import Footer from "@/components/Footer";
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#F2E7C9]">
+    <main className="flex flex-col w-full min-h-screen bg-[#F2E7C9]">
       <Navbar />
-      <div className="pt-24">
-        <Hero />
+      <Hero />
+      <div className="space-y-12">
         <About />
+        <Work />
+        <Projects />
       </div>
-    </div>
+      <Footer />
+    </main>
   );
 }
