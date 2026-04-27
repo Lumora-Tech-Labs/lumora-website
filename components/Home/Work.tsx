@@ -1,3 +1,6 @@
+'use client';
+import Stepper, { Step } from '../Stepper';
+
 export default function Work() {
   const steps = [
     {
@@ -31,20 +34,39 @@ export default function Work() {
         </h3>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-        {steps.map((step) => (
-          <div key={step.num} className="group flex flex-col gap-6">
-            <span className="text-5xl font-serif text-[#B39359]/20 group-hover:text-[#B39359] transition-colors duration-500">
-              {step.num}
-            </span>
-            <h4 className="text-2xl font-medium text-[#2D2D2D]">
-              {step.title}
-            </h4>
-            <p className="text-[#6B6658] leading-relaxed text-lg">
-              {step.text}
-            </p>
-          </div>
-        ))}
+      <div className="w-full max-w-4xl mx-auto mt-8">
+        <Stepper
+          initialStep={1}
+          backButtonText="Previous"
+          nextButtonText="Next"
+          stepCircleContainerClassName="bg-[#FAF7EF] p-2 sm:p-6"
+          contentClassName="pt-10 pb-4"
+          footerClassName="pt-4"
+          backButtonProps={{
+            className:
+              'duration-350 rounded px-5 py-2.5 transition text-[#6B6658] hover:text-[#2D2D2D] hover:bg-[#E5D9B6]/40 font-medium',
+          }}
+          nextButtonProps={{
+            className:
+              'duration-350 flex items-center justify-center rounded-full bg-[#2D2D2D] py-2.5 px-6 font-medium tracking-tight text-[#FAF7EF] transition hover:bg-[#454545] active:bg-[#1a1a1a]',
+          }}
+        >
+          {steps.map((step) => (
+            <Step key={step.num}>
+              <div className="group flex flex-col gap-6">
+                <span className="text-5xl font-serif text-[#B39359]">
+                  {step.num}
+                </span>
+                <h4 className="text-3xl font-medium text-[#2D2D2D]">
+                  {step.title}
+                </h4>
+                <p className="text-[#6B6658] leading-relaxed text-xl">
+                  {step.text}
+                </p>
+              </div>
+            </Step>
+          ))}
+        </Stepper>
       </div>
     </section>
   );

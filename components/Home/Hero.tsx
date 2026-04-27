@@ -1,3 +1,4 @@
+import DecryptedText from '@/components/DecryptedText';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
@@ -14,7 +15,16 @@ export default function Hero() {
       </div>
 
       <h1 className="text-[#2D2D2D] text-5xl sm:text-7xl lg:text-9xl font-serif tracking-tight leading-[1.05] mb-8">
-        Lumora Tech Labs
+        <DecryptedText
+          text="Lumora Tech Labs"
+          animateOn="view"
+          speed={60}
+          maxIterations={15}
+          sequential={true}
+          revealDirection="start"
+          useOriginalCharsOnly={false}
+          encryptedClassName="opacity-50 text-[#B39359]"
+        />
       </h1>
 
       <p className="text-[#6B6658] text-lg md:text-2xl max-w-2xl leading-relaxed mb-12 font-light">
