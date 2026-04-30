@@ -10,6 +10,8 @@ export interface BentoCardProps {
   label?: string;
   textAutoHide?: boolean;
   disableAnimations?: boolean;
+  link?: string;
+  comingSoon?: boolean;
 }
 
 export interface BentoProps {
@@ -118,6 +120,7 @@ const ParticleCard: React.FC<{
   enableTilt?: boolean;
   clickEffect?: boolean;
   enableMagnetism?: boolean;
+  onClick?: () => void;
 }> = ({
   children,
   className = '',
@@ -128,6 +131,7 @@ const ParticleCard: React.FC<{
   enableTilt = true,
   clickEffect = false,
   enableMagnetism = false,
+  onClick,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLDivElement[]>([]);
@@ -293,6 +297,7 @@ const ParticleCard: React.FC<{
     };
 
     const handleClick = (e: MouseEvent) => {
+      onClick?.();
       if (!clickEffect) return;
 
       const rect = element.getBoundingClientRect();
@@ -358,6 +363,7 @@ const ParticleCard: React.FC<{
     enableMagnetism,
     clickEffect,
     glowColor,
+    onClick,
   ]);
 
   return (
@@ -674,9 +680,9 @@ const MagicBento: React.FC<BentoProps> = ({
       <BentoCardGrid gridRef={gridRef}>
         <div className="card-responsive grid gap-4 grid-cols-1 md:grid-cols-4 w-full">
           {items.map((card, index) => {
-            const baseClassName = `card flex flex-col justify-between relative min-h-[250px] p-8 rounded-[20px] border border-solid font-light overflow-hidden transition-colors duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
+            const baseClassName = `group card flex flex-col justify-between relative min-h-[250px] p-8 rounded-[20px] border border-solid font-light overflow-hidden transition-colors duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
               enableBorderGlow ? 'card--border-glow' : ''
-            } ${card.className || ''}`;
+            } ${card.className || ''} ${card.link && !card.comingSoon ? 'cursor-pointer' : ''}`;
 
             const cardStyle = {
               '--glow-x': '50%',
@@ -684,6 +690,12 @@ const MagicBento: React.FC<BentoProps> = ({
               '--glow-intensity': '0',
               '--glow-radius': '200px',
             } as React.CSSProperties;
+
+            const handleCardClick = () => {
+              if (card.link && !card.comingSoon) {
+                window.open(card.link, '_blank', 'noopener,noreferrer');
+              }
+            };
 
             if (enableStars) {
               return (
@@ -697,8 +709,9 @@ const MagicBento: React.FC<BentoProps> = ({
                   enableTilt={enableTilt}
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}
+                  onClick={handleCardClick}
                 >
-                  <div className="card__content flex flex-col relative">
+                  <div className="card__content flex flex-col relative z-10 w-full h-full">
                     <h3
                       className={`card__title font-normal text-lg m-0 mb-3 ${textAutoHide ? 'text-clamp-1' : ''} ${card.isDark ? 'text-[#D4A574]' : ''}`}
                     >
@@ -709,7 +722,32 @@ const MagicBento: React.FC<BentoProps> = ({
                     >
                       {card.description}
                     </p>
+                    {card.link && !card.comingSoon && (
+                      <div className="mt-auto pt-6 flex justify-end">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                          stroke="currentColor"
+                          className="w-6 h-6 opacity-100 md:opacity-0 transition-all duration-300 md:group-hover:opacity-100 md:group-hover:translate-x-1 md:group-hover:-translate-y-1"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                          />
+                        </svg>
+                      </div>
+                    )}
                   </div>
+                  {card.comingSoon && (
+                    <div className="absolute inset-0 bg-black/10 backdrop-blur-sm opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 z-20 flex items-center justify-center">
+                      <span className="text-sm font-bold tracking-[0.2em] text-[#B39359] bg-[#FAF7EF]/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+                        COMING SOON
+                      </span>
+                    </div>
+                  )}
                 </ParticleCard>
               );
             }
@@ -780,6 +818,7 @@ const MagicBento: React.FC<BentoProps> = ({
                   };
 
                   const handleClick = (e: MouseEvent) => {
+                    handleCardClick();
                     if (!clickEffect || shouldDisableAnimations) return;
 
                     const rect = el.getBoundingClientRect();
@@ -829,7 +868,7 @@ const MagicBento: React.FC<BentoProps> = ({
                   el.addEventListener('click', handleClick);
                 }}
               >
-                <div className="card__content flex flex-col relative">
+                <div className="card__content flex flex-col relative z-10 w-full h-full">
                   <h3
                     className={`card__title font-normal text-2xl m-0 mb-4 ${textAutoHide ? 'text-clamp-1' : ''} ${card.isDark ? 'text-[#D4A574]' : ''}`}
                   >
@@ -840,7 +879,32 @@ const MagicBento: React.FC<BentoProps> = ({
                   >
                     {card.description}
                   </p>
+                  {card.link && !card.comingSoon && (
+                    <div className="mt-auto pt-6 flex justify-end">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-6 h-6 opacity-100 md:opacity-0 transition-all duration-300 md:group-hover:opacity-100 md:group-hover:translate-x-1 md:group-hover:-translate-y-1"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                        />
+                      </svg>
+                    </div>
+                  )}
                 </div>
+                {card.comingSoon && (
+                  <div className="absolute inset-0 bg-black/10 backdrop-blur-sm opacity-100 md:opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 z-20 flex items-center justify-center">
+                    <span className="text-sm font-bold tracking-[0.2em] text-[#B39359] bg-[#FAF7EF]/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+                      COMING SOON
+                    </span>
+                  </div>
+                )}
               </div>
             );
           })}

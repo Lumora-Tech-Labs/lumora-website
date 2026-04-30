@@ -8,6 +8,7 @@ export default function Projects() {
         'An open-source AI system for automated road damage detection and public safety infrastructure. (Computer Vision / AI)',
       className: 'md:col-span-2 bg-[#2D2D2D] text-[#FEFAF3]',
       isDark: true,
+      comingSoon: true,
     },
     {
       title: 'Grade Clutch',
@@ -15,19 +16,22 @@ export default function Projects() {
         'A comprehensive revision resource platform designed specifically for A-Level students. (EdTech / Full-Stack)',
       className:
         'md:col-span-2 bg-[#FAF7EF]/60 backdrop-blur-sm border-[#E5D9B6] text-[#3A3A3A]',
+      link: 'https://grade-clutch-dev.vercel.app/',
     },
     {
-      title: 'Lumora Lumina',
+      title: 'Lockr',
       description:
-        'A high-fidelity, minimalist UI framework optimized for dark mode and accessibility. (Design System)',
+        'The ultimate vault for your identity. Securely store your passport, ID cards, and confidential documents in a single, heavily encrypted digital locker. Accessible only by you, exactly when you need it.',
       className:
         'md:col-span-2 bg-[#FAF7EF]/60 backdrop-blur-sm border-[#E5D9B6] text-[#3A3A3A]',
+      link: 'https://lockr-app.vercel.app/',
     },
     {
       title: 'ValidateIt',
       description:
         'Smart data validation engines for high-stress financial environments. (SaaS / Fintech)',
       className: 'md:col-span-2 bg-[#FAF7EF] border-[#E5D9B6] text-[#3A3A3A]',
+      comingSoon: true,
     },
   ];
 
