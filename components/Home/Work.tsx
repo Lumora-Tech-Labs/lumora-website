@@ -5,18 +5,18 @@ export default function Work() {
   const steps = [
     {
       num: '01',
-      title: 'Discovery & Research',
-      text: 'We dive deep into the problem space, collaborating with domain experts to define the technical requirements.',
+      title: 'Discovery & Technical Specification',
+      text: 'We conduct deep technical discovery: mapping system constraints, defining data models, and producing an unambiguous specification document. Not a single line of production code is written before this is complete.',
     },
     {
       num: '02',
-      title: 'Custom Architecture',
-      text: 'No off-the-shelf wrappers. We build bespoke engines and ML models tailored to your specific scale.',
+      title: 'Architecture & Prototyping',
+      text: 'No off-the-shelf wrappers. We architect bespoke systems — from API schema and database design to ML pipeline structures — and validate every core assumption with a working prototype before full build.',
     },
     {
       num: '03',
-      title: 'High-Fidelity Build',
-      text: 'Merging performance with minimalist UI/UX to ensure the system is as intuitive as it is powerful.',
+      title: 'Deployment & Scale',
+      text: 'We ship to production environments with CI/CD pipelines, performance benchmarks, and load-tested infrastructure. Systems are designed to scale from day one, not retrofitted six months later under pressure.',
     },
   ];
 

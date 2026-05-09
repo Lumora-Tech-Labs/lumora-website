@@ -10,11 +10,11 @@ export default function Hero() {
 
       <div className="inline-block border border-[#E5D9B6] rounded-full bg-[#FAF7EF] px-5 py-2 mb-10 shadow-sm animate-fade-in">
         <p className="text-[#B39359] text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase">
-          Turning Ideas Into Real Systems
+          Precision Engineering · No Hype
         </p>
       </div>
 
-      <h1 className="text-[#2D2D2D] text-5xl sm:text-7xl lg:text-9xl font-serif tracking-tight leading-[1.05] mb-8">
+      <h1 className="text-[#2D2D2D] text-5xl sm:text-7xl lg:text-9xl font-serif tracking-tight leading-[1.05] mb-6">
         <DecryptedText
           text="Lumora Tech Labs"
           animateOn="view"
@@ -27,8 +27,15 @@ export default function Hero() {
         />
       </h1>
 
-      <p className="text-[#6B6658] text-lg md:text-2xl max-w-2xl leading-relaxed mb-12 font-light">
-        Building intelligent, scalable software with precision and clarity.
+      <p className="text-[#2D2D2D] text-xl md:text-3xl font-serif max-w-3xl leading-snug mb-5 font-medium tracking-tight">
+        Architecting Scalable Systems for{' '}
+        <br className="hidden md:block" />
+        Data-Intensive Applications.
+      </p>
+
+      <p className="text-[#6B6658] text-base md:text-xl max-w-2xl leading-relaxed mb-12 font-light">
+        Specializing in high-performance Python backends, Next.js frontends,
+        and AI-driven infrastructure for startups and enterprises.
       </p>
 
       <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
@@ -36,7 +43,7 @@ export default function Hero() {
           asChild
           className="bg-[#2D2D2D] text-[#FAF7EF] hover:bg-[#454545] h-16 px-12 rounded-full text-lg w-full sm:w-auto transition-all duration-300"
         >
-          <Link href="/work">View Our Work</Link>
+          <Link href="/#projects">View Our Work</Link>
         </Button>
         <Button
           asChild

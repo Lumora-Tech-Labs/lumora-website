@@ -5,7 +5,7 @@ export default function Projects() {
     {
       title: 'RoadSight',
       description:
-        'An open-source AI system for automated road damage detection and public safety infrastructure. (Computer Vision / AI)',
+        'Open-source AI system utilizing ResNet18 architecture for real-time computer vision in road safety infrastructure. Designed for automated road damage detection and public safety monitoring at scale. (Computer Vision / Python)',
       className: 'md:col-span-2 bg-[#2D2D2D] text-[#FEFAF3]',
       isDark: true,
       comingSoon: true,
@@ -13,7 +13,7 @@ export default function Projects() {
     {
       title: 'Grade Clutch',
       description:
-        'A comprehensive revision resource platform designed specifically for A-Level students. (EdTech / Full-Stack)',
+        'A full-stack revision platform utilizing Next.js, TypeScript, and Supabase to serve high-traffic educational needs. Built for performance at scale with a distraction-free, exam-focused UX. (EdTech / Full-Stack)',
       className:
         'md:col-span-2 bg-[#FAF7EF]/60 backdrop-blur-sm border-[#E5D9B6] text-[#3A3A3A]',
       link: 'https://grade-clutch-dev.vercel.app/',
@@ -27,9 +27,9 @@ export default function Projects() {
       link: 'https://lockr-app.vercel.app/',
     },
     {
-      title: 'ValidateIt',
+      title: 'Netto',
       description:
-        'Smart data validation engines for high-stress financial environments. (SaaS / Fintech)',
+        'A financial engineering tool for automated invoice management and tax-metric calculation. Built on FastAPI with a rigorous backend architecture for high-accuracy financial data processing and reporting. (Fintech / Backend)',
       className: 'md:col-span-2 bg-[#FAF7EF] border-[#E5D9B6] text-[#3A3A3A]',
       comingSoon: true,
     },
@@ -46,9 +46,6 @@ export default function Projects() {
             The Lab Output.
           </h3>
         </div>
-        <span className="text-[#6B6658]/50 font-medium italic">
-          Case studies in development
-        </span>
       </div>
 
       <MagicBento

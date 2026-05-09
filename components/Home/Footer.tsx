@@ -16,8 +16,8 @@ export default function Footer() {
               Lumora<span className="text-[#B39359]">.</span>
             </Link>
             <p className="text-[#6B6658] text-lg max-w-sm leading-relaxed">
-              Architecting the future of intelligent systems through precision
-              engineering and high-fidelity design.
+              Architecting high-performance, data-intensive systems through
+              rigorous engineering and high-fidelity design.
             </p>
           </div>
 
@@ -48,7 +48,7 @@ export default function Footer() {
             <ul className="space-y-2 text-[#6B6658]">
               <li>Lahore, PK</li>
               <li className="pt-4 italic">
-                Available for global Remote collaboration.
+                Available for global remote collaboration.
               </li>
             </ul>
           </div>
